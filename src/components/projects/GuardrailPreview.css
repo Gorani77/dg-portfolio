@@ -1,0 +1,231 @@
+.lab-card {
+  background: #fff;
+  border: 1px solid #e5dfed;
+  border-radius: 13px;
+  box-shadow: 0 20px 50px -30px #90829845;
+  overflow: hidden;
+}
+
+.lab-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #efecf1;
+  padding: 16px 21px;
+  font-size: 15px;
+  color: #78717f;
+}
+
+.lab-symbol {
+  color: #8b6db8;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.lab-label {
+  margin-left: auto;
+  font-size: 11px;
+  letter-spacing: .9px;
+  color: #9c8aaf;
+}
+
+.lab-body {
+  padding: 25px;
+}
+
+.lab-title h2 {
+  font-size: 28px;
+  letter-spacing: -1px;
+  font-weight: 700;
+  margin: 12px 0 9px;
+}
+
+.lab-title p {
+  color: #91829b;
+  font-size: 16px;
+}
+
+.stage-control {
+  display: flex;
+  gap: 4px;
+  background: #f5f3f7;
+  padding: 5px;
+  border-radius: 6px;
+  margin: 21px 0 17px;
+}
+
+.stage-control button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #8a7c96;
+  font-size: 15px;
+  padding: 11px 4px;
+  border-radius: 4px;
+}
+
+.stage-control button[aria-pressed="true"] {
+  background: white;
+  color: #73579e;
+  box-shadow: 0 1px 5px #47345e10;
+  font-weight: 700;
+}
+
+.request {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+  border: 1px solid #eeeaf1;
+  border-radius: 7px;
+}
+
+.request-icon {
+  font-size: 26px;
+  color: #aea3bd;
+}
+
+.request div > span {
+  font-size: 13px;
+  color: #93829f;
+}
+
+.request p {
+  font-size: 18px;
+  margin-top: 6px;
+  color: #4d4657;
+}
+
+.flow-line {
+  height: 17px;
+  border-left: 1px dashed #dcd3e5;
+  margin-left: 28px;
+}
+
+.policy-node {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fbfafc;
+  padding: 13px;
+  border: 1px solid #eeebf2;
+  border-radius: 7px;
+}
+
+.node-icon {
+  height: 34px;
+  width: 34px;
+  background: #efebf7;
+  color: #9479b4;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.policy-node strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #655b70;
+}
+
+.policy-node div > span {
+  display: block;
+  font-size: 14px;
+  color: #94819f;
+  margin-top: 5px;
+}
+
+.node-check {
+  margin-left: auto;
+  color: #a993c0;
+  font-size: 16px;
+}
+
+.decision {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0eaf8;
+  border: 1px solid #e2d5f0;
+  padding: 14px 13px;
+  border-radius: 7px;
+  min-height: 85px;
+}
+
+.decision-icon {
+  width: 32px;
+  height: 32px;
+  background: #e4d8f2;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #8862ad;
+  flex-shrink: 0;
+}
+
+.decision strong {
+  font-size: 17px;
+  color: #7c5b9d;
+  font-weight: 600;
+}
+
+.decision p {
+  font-size: 14px;
+  color: #9376aa;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.decision.allowed {
+  background: #edf5f0;
+  border-color: #d5e8dc;
+}
+
+.allowed .decision-icon {
+  background: #dbece1;
+  color: #5b8b70;
+}
+
+.allowed strong {
+  color: #527b64;
+}
+
+.allowed p {
+  color: #6c8c79;
+}
+
+@media (max-width: 760px) {
+  .lab-body {
+    padding: 22px;
+  }
+  .request p {
+    font-size: 17px;
+  }
+  .policy-node strong {
+    font-size: 15px;
+  }
+  .policy-node div > span {
+    font-size: 13px;
+  }
+  .lab-heading {
+    font-size: 14px;
+  }
+  .lab-label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .lab-heading {
+    padding-inline: 15px;
+  }
+  .lab-label {
+    font-size: 9px;
+  }
+  .lab-body {
+    padding: 17px;
+  }
+}

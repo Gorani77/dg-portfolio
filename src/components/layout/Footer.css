@@ -1,0 +1,41 @@
+.lab-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: #fcfbfd;
+  border-top: 1px solid #f1edf4;
+  font-size: 12px;
+  color: #92829d;
+}
+
+.lab-footer > span:last-child {
+  margin-left: auto;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #94859f;
+  font-size: 14px;
+  padding: 23px 0;
+  border-top: 1px solid #e9e6eb;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 760px) {
+  footer > span:nth-child(2) {
+    display: none;
+  }
+  footer {
+    font-size: 13px;
+  }
+}
