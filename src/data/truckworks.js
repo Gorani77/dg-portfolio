@@ -1,6 +1,7 @@
 export const truckworks = {
   title: 'TruckWorks',
   route: '#projects/truckworks',
+  siteUrl: 'https://dg-truckworks.site',
   period: '2026.10 — 진행 중',
   role: '개인 프로젝트 · 기획 / 시스템 설계 / 프론트엔드 / 백엔드 / 3D',
   overview: `${import.meta.env.BASE_URL}truckworks/factory-overview.png`,

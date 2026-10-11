@@ -6,7 +6,8 @@
 .tw-feature h2 { font-size: clamp(42px, 5.1vw, 78px); font-weight: 550; letter-spacing: -.065em; line-height: 1.05; margin-top: 32px; }
 .tw-feature h2 > span { display: block; margin-top: 26px; font-size: clamp(24px, 2.6vw, 38px); font-weight: 450; letter-spacing: -.045em; line-height: 1.45; }
 .tw-feature p { max-width: 370px; margin-top: 25px; color: var(--text); font-size: 15px; line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere; }
-.tw-feature-link { display: inline-flex; gap: 34px; align-items: center; min-height: 48px; margin-top: 29px; padding: 13px 0; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: 15px; font-weight: 550; }
+.tw-feature-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; margin-top: 29px; }
+.tw-feature-link { display: inline-flex; gap: 20px; align-items: center; min-height: 48px; padding: 13px 0; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: 15px; font-weight: 550; }
 .tw-feature-link:hover { color: var(--accent); border-color: var(--accent); }
 .tw-feature-link svg { transition: transform .2s; }
 .tw-feature-link:hover svg { transform: translateX(4px); }

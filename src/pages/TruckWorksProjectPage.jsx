@@ -1,6 +1,7 @@
 import Arrow from '../components/common/Arrow.jsx'
 import TruckWorksStory from '../components/truckworks/TruckWorksStory.jsx'
 import TruckWorksArchitecture from '../components/truckworks/TruckWorksArchitecture.jsx'
+import TruckWorksSiteLink from '../components/truckworks/TruckWorksSiteLink.jsx'
 import { truckworks, decisions } from '../data/truckworks.js'
 import './TruckWorksProjectPage.css'
 
@@ -13,7 +14,7 @@ function jumpTo(id) {
 export default function TruckWorksProjectPage() {
   return <article className="tw-case">
     <header className="tw-case-hero">
-      <div className="tw-case-topline"><a href="#projects"><Arrow /> 프로젝트 목록</a><span>PROJECT 01 / SYSTEMS × AI</span><span>2026.10 — 진행 중</span></div>
+      <div className="tw-case-topline"><a href="#projects"><Arrow /> 프로젝트 목록</a><span>PROJECT 01 / SYSTEMS × AI</span><div className="tw-case-topline-actions"><span>2026.10 — 진행 중</span><TruckWorksSiteLink dark /></div></div>
       <div className="tw-hero-type"><div><span className="tw-overline">이동규 · 개인 프로젝트</span><h1>TruckWorks<span>.</span></h1></div><p>3D 공장 시뮬레이션과<br /><em>AI 상태 분석</em></p></div>
       <figure className="tw-hero-figure"><img src={truckworks.overview} alt="자체 제작한 다섯 공정 설비, 보관 선반과 전시 트럭을 배치한 TruckWorks 공장 디오라마" width="2200" height="1400" fetchPriority="high" /><figcaption><span>FACTORY 01 / CHASSIS LINE</span><span>실제 프로젝트의 Blender 자산으로 제작한 소개 이미지 · 실행 화면 아님</span></figcaption><span className="tw-hero-coordinate" aria-hidden="true">01 / 05<br />PRODUCTION<br />SYSTEM</span></figure>
       <div className="tw-hero-bottom"><p>차체 생산 과정을 3D로 구현한 시뮬레이터입니다.<br />AI가 공장 상태와 이벤트 기록을 조회해 설비가 멈춘 원인을 설명합니다.</p><button onClick={() => jumpTo('tw-experience')}>작동 방식 살펴보기 <Arrow /></button></div>
@@ -47,10 +48,10 @@ export default function TruckWorksProjectPage() {
 
     <section className="tw-section tw-scope" aria-labelledby="tw-scope">
       <div className="tw-section-heading"><span className="tw-overline">05 / CURRENT CHAPTER</span><h2 id="tw-scope" tabIndex={-1}>현재 개발 현황과<br />남은 작업</h2><p>현재 로컬에서 개발 중입니다. 아래는 코드 작성이 끝난 기능과 실행 확인·공개 전에 남은 작업입니다.</p></div>
-      <div className="tw-scope-grid"><div><span className="tw-scope-status">코드 작성 완료</span><ul><li>5개 공정 · 차체 1개 / 20개 생산</li><li>대기열 · 이동 예약 · 고장과 잔여시간 복구</li><li>읽기 전용 AI · 관측 고정 · 근거와 관련 설비</li><li>생산·분석 이력 · 방문자별 실행 분리</li><li>Blender 자산 15종 · 공간 탐색 UI</li></ul></div><div><span className="tw-scope-status" data-pending="true">남은 작업</span><ul><li>전체 기능·반응형·시각 확인</li><li>실제 실행을 담은 데모 영상</li><li>공개 호스팅과 소스 공개 범위 결정</li><li>조건을 명시한 응답·성능 측정</li></ul><p>현재 공개 데모 URL과 측정된 성능 수치는 없습니다. 실제 공장 연동·비전 검사 AI·완성 트럭 조립은 구현 범위에 포함하지 않습니다.</p></div></div>
+      <div className="tw-scope-grid"><div><span className="tw-scope-status">코드 작성 완료</span><ul><li>5개 공정 · 차체 1개 / 20개 생산</li><li>대기열 · 이동 예약 · 고장과 잔여시간 복구</li><li>읽기 전용 AI · 관측 고정 · 근거와 관련 설비</li><li>생산·분석 이력 · 방문자별 실행 분리</li><li>Blender 자산 15종 · 공간 탐색 UI</li></ul></div><div><span className="tw-scope-status" data-pending="true">남은 작업</span><ul><li>전체 기능·반응형·시각 확인</li><li>실제 실행을 담은 데모 영상</li><li>공개 호스팅과 소스 공개 범위 결정</li><li>조건을 명시한 응답·성능 측정</li></ul><p>공개 배포를 준비 중이며, 측정된 성능 수치는 아직 없습니다. 실제 공장 연동·비전 검사 AI·완성 트럭 조립은 구현 범위에 포함하지 않습니다.</p></div></div>
       <div className="tw-next"><p>추후 확장 계획<br /><strong>조립 공정과 생산 조건 비교</strong></p><span>차체 생산 이후의 조립 공정을 추가하고,<br />생산 조건을 바꿨을 때 결과를 비교하는 기능을 검토하고 있습니다.</span></div>
     </section>
-    <section className="tw-case-end" aria-label="다음 탐색"><div><span className="tw-overline">CONTACT</span><h2>프로젝트에 관한 질문은<br />메일로 보내주세요.</h2><a href="mailto:sp2877@naver.com">sp2877@naver.com <Arrow diagonal /></a></div><a className="tw-back-link" href="#projects">다른 프로젝트 보기 <Arrow /></a></section>
+    <nav className="tw-case-navigation" aria-label="프로젝트 관련 링크"><TruckWorksSiteLink /><a className="tw-projects-link" href="#projects">다른 프로젝트 보기 <Arrow /></a></nav>
   </article>
 }
 

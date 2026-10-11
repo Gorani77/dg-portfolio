@@ -1,0 +1,6 @@
+.tw-site-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 44px; padding: 10px 16px; background: var(--accent); color: #fff; border: 1px solid var(--accent); text-decoration: none; font-size: 14px; font-weight: 550; line-height: 1.4; white-space: nowrap; }
+.tw-site-link > svg { flex-shrink: 0; width: 18px; height: 18px; }
+.tw-site-link:hover { background: var(--ink); border-color: var(--ink); }
+.tw-site-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.tw-site-link-dark { background: transparent; border-color: #8fa59d66; color: #e2ba7c; }
+.tw-site-link-dark:hover { background: #e2ba7c14; border-color: #e2ba7c; }

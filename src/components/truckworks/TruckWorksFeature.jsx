@@ -1,5 +1,6 @@
 import Arrow from '../common/Arrow.jsx'
 import { truckworks } from '../../data/truckworks.js'
+import TruckWorksSiteLink from './TruckWorksSiteLink.jsx'
 import './TruckWorksFeature.css'
 
 export default function TruckWorksFeature({ home = false }) {
@@ -8,7 +9,10 @@ export default function TruckWorksFeature({ home = false }) {
       <span className="tw-feature-kicker"><i /> PROJECT / 01 <span>개인 프로젝트</span></span>
       <h2 id={home ? 'tw-home-title' : 'tw-feature-title'}>TruckWorks<span>3D 공장 시뮬레이션과<br />AI 상태 분석</span></h2>
       <p>차체 생산라인을 3D로 구현한 개인 프로젝트입니다. 설비의 고장·복구를 시뮬레이션하고, AI가 공장 상태와 이벤트를 조회해 원인을 설명하도록 만들고 있습니다.</p>
-      <a className="tw-feature-link" href={truckworks.route}>프로젝트 자세히 보기 <Arrow /></a>
+      <div className="tw-feature-actions">
+        <TruckWorksSiteLink />
+        <a className="tw-feature-link" href={truckworks.route}>프로젝트 자세히 보기 <Arrow /></a>
+      </div>
       <div className="tw-feature-meta"><span>개인 프로젝트</span><span>React × Python × Blender</span><span>개발 중</span></div>
     </div>
     <a className="tw-feature-visual" href={truckworks.route} aria-label="TruckWorks 프로젝트 보기">
