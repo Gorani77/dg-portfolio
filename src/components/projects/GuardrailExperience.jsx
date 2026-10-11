@@ -77,7 +77,7 @@ export default function GuardrailExperience() {
   function move(next) { setStep(next); setPlaying(false); setInspected(null) }
 
   return <div className="interview-graph guardrail-graph">
-    <div className="ig-heading"><div><span className="ig-eyebrow">RAG / INPUT GUARDRAIL</span><h3>이 요청은 챗봇까지 도달할까요?</h3></div><span className="ig-node-count">정책 검색 → 판정 → 서버 검사</span></div>
+    <div className="ig-heading"><div><span className="ig-eyebrow">RAG / INPUT GUARDRAIL</span><h3>요청 허용·차단 처리 과정</h3></div><span className="ig-node-count">정책 검색 → 판정 → 서버 검사</span></div>
     <div className="gg-controls">
       <fieldset><legend>학습 단계</legend><div className="education-options"><button type="button" aria-pressed={stage === 'solve'} onClick={() => change(setStage, 'solve')}>풀이 중</button><button type="button" aria-pressed={stage === 'explain'} onClick={() => change(setStage, 'explain')}>해설 확인</button></div></fieldset>
       <fieldset><legend>사용자 요청</legend><div className="education-options">{Object.entries(requests).map(([id, item]) => <button key={id} type="button" aria-pressed={request === id} onClick={() => change(setRequest, id)}>{item.label}</button>)}</div></fieldset>
@@ -93,7 +93,7 @@ export default function GuardrailExperience() {
       <svg viewBox="0 0 1140 640" className={expanded ? 'is-expanded' : ''} aria-label="요청부터 챗봇 호출 또는 차단까지의 개념도">
         <defs><pattern id={`${marker}-dots`} width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ddd7e8" /></pattern><marker id={`${marker}-arrow`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" /></marker></defs>
         <rect width="1140" height="640" fill={`url(#${marker}-dots)`} />
-        <g className="ig-lane-label"><text x="470" y="45">학습 문맥과 정책으로 판정 근거 구성</text><text x="975" y="270">판정 근거를 서버에서 검사</text></g>
+        <g className="ig-lane-label"><text x="470" y="45">학습 단계에 맞는 정책 검색과 AI 판정</text><text x="975" y="270">판정 근거를 서버에서 검사</text></g>
         {edges.map(([from, to, d]) => {
           const key = `${from}:${to}`
           const active = step > 0 && path[step - 1] === from && currentId === to

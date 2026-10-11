@@ -128,7 +128,7 @@ export default function EducationProjectPage() {
       <div className="education-body">
       <section className="education-section" id="education-service" aria-labelledby="education-heading-service">
         <h2 id="education-heading-service" tabIndex={-1}>서비스 화면</h2>
-        <p className="education-section-intro">교사와 학생의 사용 장면을 선택해 살펴볼 수 있습니다.</p>
+        <p className="education-section-intro">교사 문제 생성, 학생 풀이, 해설 화면을 선택해 볼 수 있습니다.</p>
         <div className="education-options" role="group" aria-label="서비스 화면 선택">
           {Object.entries(screens).map(([id, item]) => <button type="button" key={id} aria-pressed={screen === id} onClick={() => setScreen(id)}>{item.label}</button>)}
         </div>
@@ -145,8 +145,8 @@ export default function EducationProjectPage() {
       </section>
 
       <section className="education-section" id="education-experience" aria-labelledby="education-heading-experience">
-        <h2 id="education-heading-experience" tabIndex={-1}>학습 단계에 따라 달라지는 요청 처리</h2>
-        <p className="education-section-intro">풀이 중에는 스스로 해결하도록 돕고, 해설 단계에서는 정답과 풀이 설명을 허용하도록 정책을 구분했습니다. 같은 요청을 선택한 채 학습 단계만 바꿔보세요.</p>
+        <h2 id="education-heading-experience" tabIndex={-1}>풀이 중에는 정답 요청을 차단하고, 해설에서는 허용합니다</h2>
+        <p className="education-section-intro">문제를 푸는 중에는 정답과 전체 풀이를 알려주지 않도록 했습니다. 해설 화면에서는 이를 허용합니다. 아래에서 같은 요청을 두고 학습 단계를 바꾸면 처리 차이를 볼 수 있습니다.</p>
         <GuardrailExperience />
       </section>
 
@@ -163,14 +163,14 @@ export default function EducationProjectPage() {
 
       <section className="education-section" id="education-architecture" aria-labelledby="education-heading-architecture">
         <h2 id="education-heading-architecture" tabIndex={-1}>제가 구현한 가드레일의 구조</h2>
-        <p className="education-section-intro">전체 서비스 중 제가 담당한 챗봇 입력 가드레일 흐름입니다. 각 단계를 선택하면 역할을 볼 수 있습니다.</p>
+        <p className="education-section-intro">챗봇 호출 전에 입력 검사, 정책 검색, AI 판정, 서버 검사를 거칩니다. 각 단계를 누르면 제가 구현한 처리 내용과 관련 코드를 볼 수 있습니다.</p>
         <div className="education-architecture" role="group" aria-label="가드레일 구성 요소">
           {architecture.map((item, index) => <button type="button" key={item.id} aria-pressed={node === item.id} aria-controls="education-node-detail" onClick={() => setNode(item.id)}><span>{index + 1}</span>{item.title}</button>)}
         </div>
         <div id="education-node-detail" className="education-node-detail"><h3>{currentNode.title}</h3><p>{currentNode.text}</p></div>
         <details className="education-source" key={node}>
           <summary>관련 구현 코드 펼치기</summary>
-          <p className="education-source-caption">제공된 백엔드 프로젝트에서 발췌한 코드입니다.</p>
+          <p className="education-source-caption">학습관리 플랫폼 백엔드의 해당 구현 코드입니다.</p>
           <p className="education-source-path">{currentImplementation.file}:{currentImplementation.line}</p>
           <pre><code>{currentImplementation.code}</code></pre>
           {currentImplementation.sql && <>
@@ -182,8 +182,8 @@ export default function EducationProjectPage() {
       </section>
 
       <section className="education-section" id="education-cases" aria-labelledby="education-heading-cases">
-        <h2 id="education-heading-cases" tabIndex={-1}>코드에 근거한 처리 사례</h2>
-        <p className="education-section-intro">예시이며 미실행입니다. 관련 정책이 검색되고 AI가 아래 응답을 반환한다고 가정했을 때의 서버 처리 분기를 설명합니다. 실제 모델의 판정 결과나 서비스 성능을 측정한 자료가 아닙니다.</p>
+        <h2 id="education-heading-cases" tabIndex={-1}>요청과 AI 응답에 따른 처리 예시</h2>
+        <p className="education-section-intro">아래 입력과 AI 응답을 가정했을 때 서버가 어떻게 처리하는지 정리했습니다. 실제 AI를 실행해 얻은 결과나 성능 측정 자료는 아닙니다.</p>
         <div className="education-case-table" tabIndex={0} role="region" aria-label="처리 사례 표, 좁은 화면에서는 가로로 스크롤할 수 있습니다">
           <table>
             <caption>정책 검색·AI 응답 조건에 따른 코드상 처리</caption>
@@ -195,10 +195,10 @@ export default function EducationProjectPage() {
       </section>
 
       <section className="education-section" id="education-reflection" aria-labelledby="education-heading-reflection">
-        <h2 id="education-heading-reflection" tabIndex={-1}>설계하며 배운 점</h2>
+        <h2 id="education-heading-reflection" tabIndex={-1}>개발 회고</h2>
         <div className="education-reflection">
-          <div><h3>검색에는 적용 조건이 필요합니다</h3><p>RAG 검색에서 의미적 유사도만으로 문서를 선택하면 적용할 수 없는 정책이 섞일 수 있습니다. 문서의 적용 조건을 메타데이터로 관리하고 검색 조건에 반영하는 것이 중요하다는 점을 배웠습니다.</p></div>
-          <div><h3>AI 판정의 근거를 서버에서 검사합니다</h3><p>허용·차단 결과뿐 아니라 근거 정책 ID도 함께 받아, 서버가 검색 결과와 정책 속성을 검사하도록 구성했습니다. 결과가 불확실하거나 검사에 실패하면 기존 챗봇 호출을 중단하도록 처리했습니다.</p></div>
+          <div><h3>검색 조건에 학습 단계를 추가한 이유</h3><p>정답 요청과 문장이 비슷하다는 이유로 검색하면, 풀이 단계에서도 해설용 허용 정책이 나왔습니다. 이 문제를 해결하면서 정책이 어느 단계에 적용되는지 검색 조건에 넣어야 한다는 점을 배웠습니다.</p></div>
+          <div><h3>AI가 반환한 정책 ID를 검사한 이유</h3><p>AI가 허용이라고 답해도 인용한 정책이 검색 결과에 없거나 차단 정책이라면 그대로 처리할 수 없었습니다. 정책 ID와 허용·차단 속성을 서버에서 대조하고, 일치하지 않거나 판정이 불확실하면 챗봇을 호출하지 않도록 했습니다.</p></div>
         </div>
       </section>
       <footer className="education-bottom"><a href="#projects">← 프로젝트 목록으로 돌아가기</a><a href={repository} target="_blank" rel="noreferrer">GitHub <Arrow diagonal /></a></footer>

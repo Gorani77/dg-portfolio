@@ -6,9 +6,9 @@ export default function GuardrailPreview() {
   const allowed = stage === 'explain'
   return (
     <div className="lab-card">
-      <div className="lab-heading"><span className="lab-symbol">✳</span><span>작동 원리 들여다보기</span><span className="lab-label">INTERACTIVE</span></div>
+      <div className="lab-heading"><span className="lab-symbol">✳</span><span>가드레일 처리 예시</span><span className="lab-label">INTERACTIVE</span></div>
       <div className="lab-body">
-        <div className="lab-title"><span className="eyebrow">CONTEXT-AWARE GUARDRAIL</span><h2>같은 질문, 다른 판단.</h2><p>학습 단계를 바꿔 처리 흐름을 살펴보세요.</p></div>
+        <div className="lab-title"><span className="eyebrow">CONTEXT-AWARE GUARDRAIL</span><h2>학습 단계별 정답 요청 처리</h2><p>학습 단계를 바꿔 처리 흐름을 살펴보세요.</p></div>
         <div className="stage-control" role="group" aria-label="학습 단계 선택">
           <button type="button" aria-pressed={!allowed} onClick={() => setStage('solve')}>01 문제 풀이 중</button>
           <button type="button" aria-pressed={allowed} onClick={() => setStage('explain')}>02 해설 확인 중</button>
@@ -21,7 +21,7 @@ export default function GuardrailPreview() {
         <div className="flow-line" aria-hidden="true" />
         <div className={`decision ${allowed ? 'allowed' : ''}`} aria-live="polite"><span className="decision-icon">{allowed ? '✓' : '↪'}</span><div><strong>{allowed ? '허용 · 학습 챗봇 호출' : '차단 · 학습 안내 반환'}</strong><p>{allowed ? '해설 단계에서는 정답과 풀이 설명을 허용합니다.' : '풀이 단계에서는 정답 대신 학습 안내를 제공합니다.'}</p></div></div>
       </div>
-      <div className="lab-footer"><span className="status-dot" />프로젝트 설계에 기반한 흐름 예시<span>실제 AI 호출 없음</span></div>
+      <div className="lab-footer"><span className="status-dot" />학습 단계에 따른 처리 예시<span>실제 AI 호출 없음</span></div>
     </div>
   )
 }

@@ -1,41 +1,11 @@
-.lab-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 18px;
-  background: #fcfbfd;
-  border-top: 1px solid #f1edf4;
-  font-size: 12px;
-  color: #92829d;
-}
-
-.lab-footer > span:last-child {
-  margin-left: auto;
-}
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  color: #94859f;
-  font-size: 14px;
-  padding: 23px 0;
-  border-top: 1px solid #e9e6eb;
-}
-
-footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-@media (max-width: 760px) {
-  footer > span:nth-child(2) {
-    display: none;
-  }
-  footer {
-    font-size: 13px;
-  }
-}
+.site-footer { padding-top: 64px; border-top: 1px solid var(--line); }
+.footer-invitation { display: flex; justify-content: space-between; align-items: end; gap: 32px; padding-bottom: 64px; }
+.footer-invitation p { font-size: clamp(26px, 3vw, 44px); line-height: 1.4; letter-spacing: -.045em; font-weight: 450; }
+.footer-invitation > a { display: inline-flex; align-items: center; gap: 28px; padding-block: 12px; border-bottom: 1px solid var(--ink); font-size: clamp(16px, 1.8vw, 24px); letter-spacing: -.025em; }
+.footer-invitation > a:hover { color: var(--accent); }
+.footer-colophon { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.6; }
+.footer-colophon a { display: flex; align-items: center; gap: 12px; min-height: 32px; }
+.footer-colophon a svg { transform: rotate(-90deg); }
+.lab-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 14px 18px; background: var(--surface); border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.lab-footer > span:last-child { margin-left: auto; }
+@media (max-width: 680px) { .site-footer { padding-top: 42px; } .footer-invitation { align-items: start; flex-direction: column; padding-bottom: 40px; gap: 22px; } .footer-colophon { flex-wrap: wrap; gap: 12px 20px; } .footer-colophon > span:nth-child(2) { order: 3; width: 100%; } .footer-colophon > a { margin-left: auto; } }

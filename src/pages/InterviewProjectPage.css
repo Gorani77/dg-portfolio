@@ -8,7 +8,7 @@
   gap: 24px;
   margin: 28px 0;
   padding-top: 24px;
-  border-top: 1px solid #eee8f2;
+  border-top: 1px solid #f7f8f5;
 }
 
 .interview-state-controls label {
@@ -17,16 +17,16 @@
   gap: 10px;
   font-size: 14px;
   line-height: 1.7;
-  color: #62546d;
+  color: #315d49;
 }
 
 .interview-state-controls strong {
   font-weight: 600;
-  color: #513368;
+  color: #202824;
 }
 
 .interview-state-controls input {
-  accent-color: #80629a;
+  accent-color: #68746c;
 }
 
 .interview-state-controls .interview-checkbox {
@@ -50,23 +50,23 @@
   flex-direction: column;
   gap: 10px;
   padding: 16px;
-  border: 1px solid #e5dfea;
+  border: 1px solid #dce2dc;
   border-radius: 8px;
   font-size: 14px;
   line-height: 1.6;
   overflow-wrap: anywhere;
-  color: #62546d;
+  color: #315d49;
 }
 
 .interview-route li span {
   font-size: 12px;
-  color: #8b789b;
+  color: #68746c;
 }
 
 .interview-route li.is-selected {
-  border-color: #9579b0;
-  background: #f4effa;
-  color: #513368;
+  border-color: #68746c;
+  background: #f7f8f5;
+  color: #202824;
   font-weight: 600;
 }
 
@@ -89,40 +89,40 @@
   justify-content: space-between;
   gap: 14px;
   padding: 20px 16px;
-  border: 1px solid #e5dfea;
+  border: 1px solid #dce2dc;
   border-radius: 8px;
-  color: #62546d;
+  color: #315d49;
   font-size: 15px;
   line-height: 1.7;
 }
 
 .interview-resume small {
   font-size: 12px;
-  color: #81718d;
+  color: #68746c;
 }
 
 .interview-resume .is-replayed {
-  border-color: #9579b0;
-  background: #eee7f5;
-  color: #513368;
+  border-color: #68746c;
+  background: #f7f8f5;
+  color: #202824;
 }
 
 .interview-resume .is-replayed small {
-  color: #624678;
+  color: #315d49;
 }
 
 .interview-action {
   padding: 12px 18px;
-  border: 1px solid #80629a;
+  border: 1px solid #68746c;
   border-radius: 7px;
-  background: #675079;
+  background: #315d49;
   color: #fff;
   font-size: 14px;
   line-height: 1.6;
 }
 
 .interview-action:hover {
-  background: #513368;
+  background: #202824;
 }
 
 .interview-responsibilities {
@@ -133,36 +133,36 @@
 
 .interview-responsibilities > div {
   padding: 24px;
-  border: 1px solid #e5dfea;
+  border: 1px solid #dce2dc;
   border-radius: 10px;
   background: #fff;
 }
 
 .interview-responsibilities span {
   font-size: 13px;
-  color: #81718d;
+  color: #68746c;
 }
 
 .interview-responsibilities h3 {
   margin: 12px 0;
   font-size: 20px;
-  color: #513368;
+  color: #202824;
 }
 
 .interview-responsibilities p {
   font-size: 15px;
   line-height: 1.8;
-  color: #514759;
+  color: #202824;
 }
 
 .interview-responsibilities .is-owned {
-  border-color: #9579b0;
-  background: #f8f5fc;
+  border-color: #68746c;
+  background: #f7f8f5;
 }
 
 .interview-detail button:focus-visible,
 .interview-detail input:focus-visible {
-  outline: 3px solid #8b70d4;
+  outline: 3px solid #68746c;
   outline-offset: 4px;
 }
 
@@ -176,3 +176,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+
+.interview-route li, .interview-resume > div { border-radius: 3px; }
+.interview-route li.is-selected { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.interview-state-controls input { accent-color: var(--accent); }

@@ -158,7 +158,7 @@ export default function InterviewProjectPage() {
     <header className="education-header" id="interview-overview">
       <p className="education-period">2026.06 - 07 · 4인 팀 프로젝트</p>
       <h1 id="interview-title" tabIndex={-1}>수강생을 위한<br className="education-title-break" /> AI 모의면접 서비스</h1>
-      <p className="education-intro">답변에 따라 다음 질문을 선택하고, 사용자의 입력을 기다리며 면접을 이어가는 AI 인터뷰어를 구현했습니다.</p>
+      <p className="education-intro">AI 면접관과 음성으로 면접을 연습하는 서비스입니다. 저는 답변 평가에 따른 질문 선택과 면접 진행을 담당했습니다.</p>
       <dl className="education-facts">
         <div><dt>서비스</dt><dd>AI 모의면접 진행 및 면접 평가 리포트 제공</dd></div>
         <div><dt>역할</dt><dd>AI 인터뷰어 에이전트와 LangGraph 면접 흐름 설계·구현</dd></div>
@@ -172,30 +172,30 @@ export default function InterviewProjectPage() {
       </div>
     </nav>
     <div className="education-body">
-      <Section id="service" title="면접 진행부터 평가 리포트까지" intro="질문에 답하고, 답변에 맞는 후속 질문을 받은 뒤 평가 결과를 확인하는 서비스입니다.">
+      <Section id="service" title="면접 진행·평가 리포트 화면" intro="질문에 답하고, 답변에 맞는 후속 질문을 받은 뒤 평가 결과를 확인하는 서비스입니다.">
         <div className="education-options" role="group" aria-label="서비스 화면 선택">{screens.map((item, index) => <button type="button" key={item.label} aria-pressed={screen === index} onClick={() => setScreen(index)}>{item.label}</button>)}</div>
         <figure className="education-screen">
           <button type="button" className="education-screen-zoom" aria-label={`${selectedScreen.label} 화면 확대`} onClick={() => dialog.current?.showModal()}><img src={selectedScreen.image} alt={selectedScreen.label} /><span>화면 확대</span></button>
           <figcaption>{selectedScreen.description}</figcaption>
         </figure>
       </Section>
-      <Section id="architecture" title="평가와 질문 생성 사이의 흐름을 맡았습니다" intro="Strategy는 질문 생성, Assessment는 답변 평가와 리포트를 맡습니다. 제가 구현한 Interviewer는 두 기능을 연결하고, 세션 상태에 따라 면접의 다음 행동을 결정합니다.">
+      <Section id="architecture" title="담당 기능: 면접 진행 에이전트" intro="질문 생성은 Strategy, 답변 평가와 리포트는 Assessment가 처리합니다. 제가 맡은 Interviewer는 이 두 기능을 호출하고, 답변을 기다리거나 다음 질문으로 넘어갈 시점을 결정합니다.">
         <InterviewGraph />
         <div className="interview-responsibilities">
           <div><span>연동 기능</span><h3>Strategy</h3><p>기본·후속 질문 생성</p></div>
           <div className="is-owned"><span>담당 범위</span><h3>Interviewer</h3><p>그래프 흐름 · 질문 분기<br />입력 대기·재개 · 종료 제어</p></div>
           <div><span>연동 기능</span><h3>Assessment</h3><p>답변 평가 · 최종 리포트</p></div>
         </div>
-        <div className="education-node-detail"><h3>세션 상태를 다음 행동의 근거로 사용했습니다</h3><p>SessionState에 현재 질문, 대화 기록, 평가 신호, 기본·파생 질문 수와 반박 질문 사용 여부를 유지합니다. 답변 이벤트를 검사하고 기록한 뒤 평가를 요청하고, 반환된 신호와 상태를 조합해 다음 노드로 이동합니다.</p></div>
+        <div className="education-node-detail"><h3>질문 선택에 사용하는 세션 상태</h3><p>SessionState에 현재 질문, 대화 기록, 평가 신호, 기본·파생 질문 수와 반박 질문 사용 여부를 유지합니다. 답변 이벤트를 검사하고 기록한 뒤 평가를 요청하고, 반환된 신호와 상태를 조합해 다음 노드로 이동합니다.</p></div>
         <Source name="routing" title="평가 신호와 세션 상태에 따른 분기 코드" />
         <Source name="wait" title="입력 대기 노드 코드" />
         <Source name="completion" title="다음 기본 질문과 최종 리포트의 분기 코드" />
         <p className="education-example-note">현재 그래프는 InMemorySaver를 사용합니다. 체크포인트는 프로세스 메모리에 저장되므로 서버 재시작 이후의 세션 복구까지 보장하는 구성은 아닙니다.</p>
       </Section>
-      <Section id="experience" title="같은 평가 신호라도 다음 질문은 달라집니다" intro="평가 결과만으로 질문을 선택하면 꼬리 질문이나 반박 질문이 반복될 수 있습니다. 현재 질문 세트의 진행 상태를 함께 보고 다음 경로를 결정했습니다.">
+      <Section id="experience" title="답변 평가와 질문 횟수에 따른 분기" intro="평가 결과만으로 질문을 선택하면 꼬리 질문이나 반박 질문이 반복될 수 있습니다. 현재 질문 세트의 진행 상태를 함께 보고 다음 경로를 결정했습니다.">
         <QuestionRouting />
       </Section>
-      <Section id="comparison" title="답변을 받았는데 질문이 다시 생성됐습니다" intro="사용자 입력으로 그래프를 재개할 때, 질문 생성과 기록 로직까지 중복 실행되는 문제가 있었습니다. 입력 대기를 별도 노드로 분리해 재실행 범위를 줄였습니다.">
+      <Section id="comparison" title="입력 재개 시 질문이 중복 생성되는 문제" intro="사용자 입력으로 그래프를 재개할 때, 질문 생성과 기록 로직까지 중복 실행되는 문제가 있었습니다. 입력 대기를 별도 노드로 분리해 재실행 범위를 줄였습니다.">
         <ResumeComparison />
         <dl className="education-explanation">
           <div><dt>원인</dt><dd>interrupt 이후의 재개는 해당 노드의 처음부터 실행됩니다. 질문 생성·기록처럼 다시 실행하면 안 되는 작업이 대기와 같은 노드에 들어 있었습니다.</dd></div>
@@ -203,19 +203,19 @@ export default function InterviewProjectPage() {
           <div><dt>배운 점</dt><dd>대화형 흐름에서는 기능별 책임뿐 아니라, 중단 후 다시 실행될 범위까지 고려해 노드를 나눠야 했습니다.</dd></div>
         </dl>
       </Section>
-      <Section id="cases" title="질문 분기 외의 상황도 경로로 처리했습니다" intro="주제 이탈, 질문 반복 요청, 무응답과 종료 조건을 별도 경로로 다룹니다. 아래는 현재 백엔드 코드에서 읽을 수 있는 예상 동작입니다.">
+      <Section id="cases" title="무응답·반복 요청·종료 처리" intro="답변이 주제를 벗어나거나, 질문을 다시 듣고 싶어 하거나, 응답이 없는 상황도 처리했습니다. 아래는 입력과 세션 상태를 가정한 코드상 동작입니다.">
         <div className="education-case-table" tabIndex={0} role="region" aria-label="코드 기반 처리 사례 표">
-          <table><caption>코드에 근거한 처리 사례 · 예시이며 미실행</caption><thead><tr><th scope="col">상황</th><th scope="col">가정한 입력·상태</th><th scope="col">이동 노드</th><th scope="col">처리 의도</th></tr></thead>
+          <table><caption>입력·상태별 처리 예시 · 실제 실행 결과 아님</caption><thead><tr><th scope="col">상황</th><th scope="col">가정한 입력·상태</th><th scope="col">이동 노드</th><th scope="col">처리 의도</th></tr></thead>
             <tbody>{cases.map(([label, input, node, reason]) => <tr key={label}><th scope="row">{label}</th><td>{input}</td><td><code>{node}</code></td><td>{reason}</td></tr>)}</tbody>
           </table>
         </div>
         <p className="education-case-footnote">근거: workflow/routing.py의 route_quality, after_complete_set, route_event, after_handle_timeout. 실행 결과·성공률·성능 측정값을 의미하지 않습니다.</p>
       </Section>
-      <Section id="reflection" title="대화가 이어지는 조건을 코드로 만들었습니다" intro="답변에 맞는 질문을 만드는 것과, 면접이 일관된 순서로 진행되도록 관리하는 것은 서로 다른 문제였습니다.">
+      <Section id="reflection" title="개발 회고와 남은 과제" intro="면접 진행을 구현하면서 후속 질문의 횟수를 제한하는 일과, 입력을 기다린 뒤 그래프가 재개되는 방식을 주로 다뤘습니다.">
         <div className="education-reflection">
-          <div><h3>평가 신호와 진행 규칙을 함께 보기</h3><p>후속 질문이 가능하다는 신호가 와도 질문 상한과 반박 사용 여부를 먼저 고려해야 했습니다. 평가 결과를 그대로 다음 행동으로 쓰지 않고, 세션의 진행 조건과 함께 처리했습니다.</p></div>
-          <div><h3>입력을 기다리는 지점을 분리하기</h3><p>중단·재개가 있는 그래프에서는 한 노드의 실행이 한 번으로 끝나지 않을 수 있습니다. 질문 생성과 기록을 입력 대기에서 분리하면서, 다시 실행해도 되는 작업의 범위를 명확히 했습니다.</p></div>
-          <div><h3>다음으로 보완할 부분</h3><p>현재 메모리 기반 체크포인트를 영속 저장 방식으로 바꿔 재시작 이후 복구를 다루고 싶습니다. 중복 답변 이벤트와 재접속 상황에서도 질문 기록이 일관되게 유지되는지 확인하는 작업도 필요합니다. 이는 현재 구현된 성과가 아닌 후속 개선 방향입니다.</p></div>
+          <div><h3>후속 질문 횟수 제한</h3><p>평가 결과가 후속 질문을 권해도 질문이 계속 이어지면 면접을 마칠 수 없습니다. 세트별 질문 상한과 반박 질문 사용 여부를 함께 확인해 다음 질문을 선택했습니다.</p></div>
+          <div><h3>입력 대기 노드 분리</h3><p>interrupt로 멈춘 노드는 재개할 때 처음부터 실행됩니다. 질문 생성과 기록까지 다시 실행되지 않도록, 입력 대기만 별도 노드로 옮겼습니다.</p></div>
+          <div><h3>다음으로 보완할 부분</h3><p>현재 체크포인트는 메모리에 있어 서버를 재시작하면 사라집니다. 저장 방식을 바꿔 면접을 복구할 수 있게 하고 싶습니다. 중복 답변이나 재접속이 발생했을 때 질문 기록이 유지되는지도 추가로 확인해야 합니다.</p></div>
         </div>
       </Section>
       <footer className="education-bottom"><a href="#projects">← 프로젝트 목록</a><a href={repository} target="_blank" rel="noreferrer">GitHub 저장소 <Arrow /></a></footer>

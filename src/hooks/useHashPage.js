@@ -3,9 +3,10 @@ import { navigationItems } from '../data/navigation.js'
 
 function getPage() {
   const hash = window.location.hash.slice(1)
+  if (hash === 'projects/truckworks') return 'truckworks'
   if (hash === 'projects/education') return 'education'
   if (hash === 'projects/interview') return 'interview'
-  return navigationItems.some(page => page.id === hash) ? hash : 'home'
+  return navigationItems.some(page => page.id === hash) ? hash : 'resume'
 }
 
 export default function useHashPage() {
@@ -38,3 +39,4 @@ export default function useHashPage() {
 
   return page
 }
+

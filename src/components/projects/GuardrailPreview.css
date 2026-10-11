@@ -1,8 +1,8 @@
 .lab-card {
   background: #fff;
-  border: 1px solid #e5dfed;
+  border: 1px solid #dce2dc;
   border-radius: 13px;
-  box-shadow: 0 20px 50px -30px #90829845;
+  box-shadow: 0 20px 50px -30px #68746c45;
   overflow: hidden;
 }
 
@@ -10,14 +10,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #efecf1;
+  border-bottom: 1px solid #f7f8f5;
   padding: 16px 21px;
   font-size: 15px;
-  color: #78717f;
+  color: #68746c;
 }
 
 .lab-symbol {
-  color: #8b6db8;
+  color: #68746c;
   font-size: 25px;
   line-height: 1;
 }
@@ -26,7 +26,7 @@
   margin-left: auto;
   font-size: 11px;
   letter-spacing: .9px;
-  color: #9c8aaf;
+  color: #68746c;
 }
 
 .lab-body {
@@ -41,14 +41,14 @@
 }
 
 .lab-title p {
-  color: #91829b;
+  color: #68746c;
   font-size: 16px;
 }
 
 .stage-control {
   display: flex;
   gap: 4px;
-  background: #f5f3f7;
+  background: #f7f8f5;
   padding: 5px;
   border-radius: 6px;
   margin: 21px 0 17px;
@@ -58,7 +58,7 @@
   flex: 1;
   border: none;
   background: transparent;
-  color: #8a7c96;
+  color: #68746c;
   font-size: 15px;
   padding: 11px 4px;
   border-radius: 4px;
@@ -66,8 +66,8 @@
 
 .stage-control button[aria-pressed="true"] {
   background: white;
-  color: #73579e;
-  box-shadow: 0 1px 5px #47345e10;
+  color: #68746c;
+  box-shadow: 0 1px 5px #20282410;
   font-weight: 700;
 }
 
@@ -76,29 +76,29 @@
   align-items: center;
   gap: 13px;
   padding: 14px 16px;
-  border: 1px solid #eeeaf1;
+  border: 1px solid #f7f8f5;
   border-radius: 7px;
 }
 
 .request-icon {
   font-size: 26px;
-  color: #aea3bd;
+  color: #9caea1;
 }
 
 .request div > span {
   font-size: 13px;
-  color: #93829f;
+  color: #68746c;
 }
 
 .request p {
   font-size: 18px;
   margin-top: 6px;
-  color: #4d4657;
+  color: #202824;
 }
 
 .flow-line {
   height: 17px;
-  border-left: 1px dashed #dcd3e5;
+  border-left: 1px dashed #dce2dc;
   margin-left: 28px;
 }
 
@@ -106,17 +106,17 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #fbfafc;
+  background: #f7f8f5;
   padding: 13px;
-  border: 1px solid #eeebf2;
+  border: 1px solid #f7f8f5;
   border-radius: 7px;
 }
 
 .node-icon {
   height: 34px;
   width: 34px;
-  background: #efebf7;
-  color: #9479b4;
+  background: #f7f8f5;
+  color: #68746c;
   display: grid;
   place-items: center;
   border-radius: 6px;
@@ -128,19 +128,19 @@
   display: block;
   font-size: 16px;
   font-weight: 500;
-  color: #655b70;
+  color: #315d49;
 }
 
 .policy-node div > span {
   display: block;
   font-size: 14px;
-  color: #94819f;
+  color: #68746c;
   margin-top: 5px;
 }
 
 .node-check {
   margin-left: auto;
-  color: #a993c0;
+  color: #68746c;
   font-size: 16px;
 }
 
@@ -148,8 +148,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #f0eaf8;
-  border: 1px solid #e2d5f0;
+  background: #f7f8f5;
+  border: 1px solid #dce2dc;
   padding: 14px 13px;
   border-radius: 7px;
   min-height: 85px;
@@ -158,23 +158,23 @@
 .decision-icon {
   width: 32px;
   height: 32px;
-  background: #e4d8f2;
+  background: #dce2dc;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #8862ad;
+  color: #68746c;
   flex-shrink: 0;
 }
 
 .decision strong {
   font-size: 17px;
-  color: #7c5b9d;
+  color: #68746c;
   font-weight: 600;
 }
 
 .decision p {
   font-size: 14px;
-  color: #9376aa;
+  color: #68746c;
   margin-top: 6px;
   line-height: 1.6;
 }
@@ -229,3 +229,10 @@
     padding: 17px;
   }
 }
+
+
+.lab-card { border-radius: 4px; box-shadow: none; border-color: var(--line); }
+.lab-title h2 { font-weight: 550; }
+.stage-control { background: var(--surface); border-radius: 3px; gap: 6px; }
+.stage-control button { min-height: 44px; border-radius: 2px; }
+.stage-control button[aria-pressed='true'] { background: var(--ink); color: white; box-shadow: none; }

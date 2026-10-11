@@ -1,6 +1,6 @@
 .project-card {
   padding: 25px 28px 0;
-  border: 1px solid #e5e1e9;
+  border: 1px solid #dce2dc;
   border-radius: 12px;
   background: #fff;
   overflow: hidden;
@@ -11,22 +11,22 @@
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  color: #95859f;
+  color: #68746c;
   font-size: 14px;
 }
 
 .project-topline > span:first-child {
-  color: #9f86bb;
+  color: #68746c;
 }
 
 .project-kind {
   margin-left: 10px;
   letter-spacing: .7px;
-  color: #82728f;
+  color: #68746c;
 }
 
 .project-diagram {
-  background: #f6f3fa;
+  background: #f7f8f5;
   border-radius: 8px;
   padding: 22px 15px 16px;
   display: flex;
@@ -39,22 +39,22 @@
 
 .project-diagram > span:not(.diagram-loop) {
   background: white;
-  border: 1px solid #e8e1f0;
+  border: 1px solid #dce2dc;
   border-radius: 5px;
   padding: 10px 14px;
   font-size: 15px;
-  color: #8e8599;
+  color: #68746c;
 }
 
 .project-diagram > .diagram-accent:not(.diagram-loop) {
-  background: #eae1f6;
-  color: #8464aa;
-  border-color: #dccdec;
+  background: #dce2dc;
+  color: #68746c;
+  border-color: #dce2dc;
 }
 
 .project-diagram i {
   font-style: normal;
-  color: #bdaccd;
+  color: #9caea1;
   font-size: 16px;
 }
 
@@ -63,7 +63,7 @@
   text-align: center;
   font-size: 14px;
   line-height: 1.5;
-  color: #967fa6;
+  color: #68746c;
   margin-top: 5px;
 }
 
@@ -90,7 +90,7 @@
 
 .project-description {
   font-size: 17px;
-  color: #807487;
+  color: #68746c;
   line-height: 1.7;
   margin-top: 13px;
 }
@@ -104,8 +104,8 @@
 
 .project-tags > span {
   font-size: 14px;
-  background: #f6f5f7;
-  color: #8a8193;
+  background: #f7f8f5;
+  color: #68746c;
   padding: 6px 10px;
   border-radius: 4px;
 }
@@ -113,7 +113,7 @@
 .project-bottom {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #ede9f0;
+  border-top: 1px solid #dce2dc;
   padding: 18px 0;
 }
 
@@ -121,7 +121,7 @@
   border: 0;
   background: none;
   padding: 0;
-  color: #7b668f;
+  color: #68746c;
   font-size: 16px;
   display: flex;
   gap: 15px;
@@ -133,17 +133,17 @@
   gap: 7px;
   align-items: center;
   font-size: 15px;
-  color: #8b7c95;
+  color: #68746c;
 }
 
 .project-details {
-  border-top: 1px solid #eeeaf2;
+  border-top: 1px solid #f7f8f5;
   padding: 19px 0 23px;
 }
 
 .project-details > span {
   font-size: 14px;
-  color: #947f9f;
+  color: #68746c;
 }
 
 .project-details h4 {
@@ -155,7 +155,7 @@
 .project-details p {
   font-size: 17px;
   line-height: 1.75;
-  color: #8a8194;
+  color: #68746c;
 }
 
 @media (max-width: 1100px) {
@@ -189,3 +189,4 @@
     font-size: 13px;
   }
 }
+

@@ -5,7 +5,7 @@ import './Navbar.css'
 export default function Navbar({ activePage }) {
   return (
     <header className="site-header">
-      <a className="brand" href="#home" aria-label="이동규 홈">
+      <a className="brand" href="#resume" aria-label="이동규 홈">
         <span className="brand-mark">dg<span>.</span></span>
         <span>
           이동규

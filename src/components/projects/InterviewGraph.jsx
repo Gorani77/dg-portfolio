@@ -107,7 +107,7 @@ export default function InterviewGraph() {
   function moveStep(next) { setStep(next); setPlaying(false); setInspected(null) }
 
   return <div className="interview-graph">
-    <div className="ig-heading"><div><span className="ig-eyebrow">INTERVIEWER / STATE GRAPH</span><h3>한 번의 답변이 지나가는 경로</h3></div><span className="ig-node-count">19개 노드 + START / END</span></div>
+    <div className="ig-heading"><div><span className="ig-eyebrow">INTERVIEWER / STATE GRAPH</span><h3>면접 상황별 처리 순서</h3></div><span className="ig-node-count">19개 노드 + START / END</span></div>
     <div className="ig-toolbar">
       <label>상황 선택<select value={scenarioId} onChange={event => changeScenario(event.target.value)}>{scenarios.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
       <div className="ig-playback">
